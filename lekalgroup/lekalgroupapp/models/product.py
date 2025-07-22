@@ -1,5 +1,4 @@
 from django.db import models
-
 from .category import Category
 
 
@@ -18,14 +17,20 @@ class Product(models.Model):
         max_length=500,
         verbose_name='Haqqında'
     )
+    price = models.FloatField(
+        verbose_name='Qiymət'   
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
+    )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Məhsul aktivliyi'
     )
 
     def __str__(self):
         return self.name
     
-
     class Meta:
         verbose_name = 'Məhsul'
         verbose_name_plural = 'Məhsullar'
