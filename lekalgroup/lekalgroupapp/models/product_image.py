@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
 from .product import Product
 
 
@@ -23,6 +25,20 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f'Image#{self.id} of {self.product.name}'
+    
+    @property
+    def image_url(self):
+        if self.image:
+            return self.image.url
+        return ''
+    
+    def clean(self):
+        if self.product and self.product.images.count() >= 3 and not self.pk:
+            raise ValidationError('Məhsula maksimum 3 şəkil əlavə etmək olar.')
+    
+    def save(self, *args, **kwargs):
+        self.full_clean() 
+        super().save(*args, **kwargs)
     
     class Meta:
         verbose_name = 'Məhsul şəkli'
