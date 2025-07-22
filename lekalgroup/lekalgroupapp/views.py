@@ -12,7 +12,7 @@ __all__ = [
     'HomePageView',
     'AboutPageView',
     'ProductListView',
-    'ProdcuctDetailView'
+    'ProductDetailView'
 ]
 
 class HomePageView(View):
@@ -32,7 +32,7 @@ class ProductListView(View):
         return render(request, 'product.html', {'products': products})
 
 
-class ProdcuctDetailView(View):
+class ProductDetailView(View):
     def get(self, request, product_id):
         product = get_object_or_404(Product, id=product_id)
         return render(request, 'product-detail.html', {'product': product})

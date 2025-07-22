@@ -20,7 +20,7 @@ urlpatterns = [
     ),
     path(
         'product/<int:product_id>/', 
-        ProdcuctDetailView.as_view(), 
+        ProductDetailView.as_view(), 
         name='product-detail'
     ),
 
