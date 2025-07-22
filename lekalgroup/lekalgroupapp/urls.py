@@ -15,12 +15,12 @@ urlpatterns = [
     ),
     path(
         'products/', 
-        AboutPageView.as_view(), 
+        ProductListView.as_view(), 
         name='product-list'
     ),
     path(
         'product/<int:product_id>/', 
-        AboutPageView.as_view(), 
+        ProdcuctDetailView.as_view(), 
         name='product-detail'
     ),
 
