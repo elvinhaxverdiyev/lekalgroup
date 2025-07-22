@@ -5,13 +5,23 @@ from .views import *
 urlpatterns = [
     path(
         '', 
-        Home.as_view(), 
+        HomePage.as_view(), 
         name='home-page'
     ),
     path(
         'about/', 
-        About.as_view(), 
+        AboutPage.as_view(), 
         name='about-page'
+    ),
+    path(
+        'products/', 
+        AboutPage.as_view(), 
+        name='product-list'
+    ),
+    path(
+        'product/<int:product_id>/', 
+        AboutPage.as_view(), 
+        name='product-detail'
     ),
 
 ]
