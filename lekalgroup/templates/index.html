@@ -56,7 +56,7 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="properties.html">Properties</a>
+                <a href="{% url 'product-list' %}">Məhsullar</a>
                 <ul class="dropdown">
                   <li><a href="#">Buy Property</a></li>
                   <li><a href="#">Sell Property</a></li>
@@ -115,7 +115,7 @@
                 href="#"
                 target="_blank"
                 class="btn btn-primary text-white py-3 px-4"
-                >View all properties</a
+                >Bütün məhsulları göstər</a
               >
             </p>
           </div>
@@ -125,7 +125,7 @@
             <div class="property-slider-wrap">
               <div class="property-slider">
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_1.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -149,7 +149,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -159,7 +159,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_2.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -183,7 +183,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -193,7 +193,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_3.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -217,7 +217,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -227,7 +227,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -251,7 +251,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -261,7 +261,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_5.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -285,7 +285,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -295,7 +295,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_6.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -319,7 +319,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -329,7 +329,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_7.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -353,7 +353,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -363,7 +363,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="{% static 'images/img_8.jpg' %}" alt="Image" class="img-fluid" />
                   </a>
 
@@ -387,7 +387,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -397,7 +397,7 @@
                 <!-- .item -->
 
                 <div class="property-item">
-                  <a href="property-single.html" class="img">
+                  <a href="{% url 'product-detail' product_id=1 %}" class="img">
                     <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
                   </a>
 
@@ -421,7 +421,7 @@
                       </div>
 
                       <a
-                        href="property-single.html"
+                        href="{% url 'product-detail' product_id=1 %}"
                         class="btn btn-primary py-2 px-3"
                         >See details</a
                       >
@@ -464,7 +464,7 @@
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
             <div class="box-feature">
               <span class="flaticon-house"></span>
-              <h3 class="mb-3">Our Properties</h3>
+              <h3 class="mb-3">Bizim Məshullarımız</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates, accusamus.
