@@ -2,14 +2,13 @@ from django.contrib import admin
 
 from lekalgroupapp.models.product import Product
 from lekalgroupapp.models.product_image import ProductImage
+from lekalgroupapp.forms import ProductImageInlineFormSet 
 
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 1  
-    fields = ('image',)
-    verbose_name = "Məhsul şəkli"
-    verbose_name_plural = "Məhsul şəkilləri"
+    formset = ProductImageInlineFormSet
+    extra = 1
 
 
 @admin.register(Product)

@@ -33,8 +33,9 @@ class ProductImage(models.Model):
         return ''
     
     def clean(self):
-        if self.product and self.product.images.count() >= 3 and not self.pk:
-            raise ValidationError('Məhsula maksimum 3 şəkil əlavə etmək olar.')
+        if self.product and self.product.pk:
+            if self.product.images.count() >= 3 and not self.pk:
+                raise ValidationError('Məhsula maksimum 3 şəkil əlavə etmək olar.')
     
     def save(self, *args, **kwargs):
         self.full_clean() 
