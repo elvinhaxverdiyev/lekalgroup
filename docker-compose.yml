@@ -12,8 +12,9 @@ services:
       - "5432:5432"
 
   web:
+    working_dir: /code/lekalgroup
     build: .
-    command: python lekalgroup/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
