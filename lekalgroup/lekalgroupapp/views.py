@@ -11,7 +11,7 @@ from lekalgroupapp.models import (
 __all__ = [
     'HomePageView',
     'AboutPageView',
-    'ProductPageView',
+    'ProductListView',
     'ProdcuctDetailView'
 ]
 
@@ -26,9 +26,10 @@ class AboutPageView(View):
         return render(request, 'about.html',)
 
 
-class ProductPageView(View):
+class ProductListView(View):
     def get(self, request):
-        return render(request, 'product.html')
+        products = Product.objects.filter(is_active=True).order_by('-created_at')
+        return render(request, 'product.html', {'products': products})
 
 
 class ProdcuctDetailView(View):
