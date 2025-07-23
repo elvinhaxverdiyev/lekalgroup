@@ -10,8 +10,6 @@ class ProductImage(models.Model):
         on_delete=models.CASCADE,
         related_name='images',
         verbose_name='Məhsul',
-        null=True,
-        blank=True 
     )
     image = models.ImageField(
         upload_to='product_images',

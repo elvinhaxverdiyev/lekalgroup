@@ -27,6 +27,15 @@ class Product(models.Model):
         default=True,
         verbose_name='Məhsul aktivliyi'
     )
+    is_popular = models.BooleanField(
+        default=False,
+        verbose_name = 'Ana səhifədə olacaq seçili məhsul'
+    )
+
+    def get_main_image_url(self):
+        first_image = self.images.first()
+        if first_image and first_image.image:
+            return first_image.image.url
 
     def __str__(self):
         return self.name
