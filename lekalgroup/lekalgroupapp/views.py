@@ -5,6 +5,7 @@ from django.views import View
 
 from lekalgroupapp.models import (
     Product,
+    Category,
     BackgroundImage,
 )
 
@@ -12,7 +13,9 @@ __all__ = [
     'HomePageView',
     'AboutPageView',
     'ProductListView',
-    'ProductDetailView'
+    'ProductDetailView',
+    'ProductListByCategoryView',
+    'CategoryListView'
 ]
 
 class HomePageView(View):
@@ -38,5 +41,17 @@ class ProductDetailView(View):
         return render(request, 'product-detail.html', {'product': product})
 
 
-# class CategoryListView()
+class CategoryListView(View):
+    def get(self, request):
+        categories = Category.objects.all()
+        return render(request, 'index.html', {'categories': categories})
     
+
+class ProductListByCategoryView(View):
+    def get(self, request, category_id):
+        category = get_object_or_404(Category, id=category_id)
+        products = Product.objects.filter(category=category)
+        return render(request, 'index.html', {
+            'products': products,
+            'category': category
+        })
