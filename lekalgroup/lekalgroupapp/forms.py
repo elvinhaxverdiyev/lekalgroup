@@ -1,6 +1,8 @@
 from django.forms.models import BaseInlineFormSet
 from django.core.exceptions import ValidationError
 
+from lekalgroupapp.models.product_image import ProductImage
+
 
 # Custom form for product image count control on admin panel
 class ProductImageInlineFormSet(BaseInlineFormSet):
@@ -12,3 +14,4 @@ class ProductImageInlineFormSet(BaseInlineFormSet):
                 total_images += 1
         if total_images > 3:
             raise ValidationError('Bir məhsula maksimum 3 şəkil əlavə etmək olar.')
+    
