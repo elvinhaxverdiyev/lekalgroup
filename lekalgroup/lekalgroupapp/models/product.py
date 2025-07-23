@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.text import slugify
+from utils.az_slugify import az_slugify
 
 from .category import Category
 
@@ -45,18 +45,18 @@ class Product(models.Model):
         first_image = self.images.first()
         if first_image and first_image.image:
             return first_image.image.url
-
-    def __str__(self):
-        return self.name
-
+  
     def save(self, *args, **kwargs):
         if not self.slug:
             super().save(*args, **kwargs)
-            self.slug = f'{slugify(self.category.name)}-{slugify(self.name)}-{self.id}'
+            self.slug = f'{az_slugify(self.category.name)}-{az_slugify(self.name)}-{self.id}'
             super().save(update_fields=['slug'])
         else:
             super().save(*args, **kwargs)
-            
+        
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Məhsul'
         verbose_name_plural = 'Məhsullar'

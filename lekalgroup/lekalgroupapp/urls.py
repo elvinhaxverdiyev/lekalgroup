@@ -29,7 +29,7 @@ urlpatterns = [
         name='category-list'
     ),
     path(
-        'products/category/<int:category_id>/',
+        'products/category/<slug:category_slug>/',
         ProductListByCategoryView.as_view(),
         name='product-by-category'
     ),
