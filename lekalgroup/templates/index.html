@@ -123,13 +123,13 @@
                   {% for product in popular_products %}
                     <div class="property-item">
                       <a href="{% url 'product-detail' product_id=product.id %}" class="img">
-                        <img src="{% static 'images/img_1.jpg' %}" alt="{{ product.name }}" class="img-fluid" />
+                        <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}" class="img-fluid" />
                       </a>
                       <div class="property-content">
-                        <div class="price mb-2"><span>${{ product.price }}</span></div>
+                        <div class="price mb-2"><span>₼{{ product.price }}</span></div>
                         <div>
                           <span class="d-block mb-2 text-black-50">{{ product.name }}</span>
-                          <a href="{% url 'product-detail' product_id=product.id %}" class="btn btn-primary py-2 px-3">See details</a>
+                          <a href="{% url 'product-detail' product_id=product.id %}" class="btn btn-primary py-2 px-3">Ətraflı Məlumat</a>
                         </div>
                       </div>
                     </div>
