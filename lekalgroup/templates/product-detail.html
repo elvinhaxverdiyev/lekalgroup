@@ -107,20 +107,20 @@
             <div class="img-property-slide-wrap">
               <div class="img-property-slide">
                 {% with images=product.images.all %}
-                <img src="{{ images.0.image.url }}" style="height: 500px;" alt="{{ product.name }}" class="img-fluid" />
+                  <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid responsive-image" />
 
-                {% if images|length > 1 %}
-                  <img src="{{ images.1.image.url }}" style="height: 500px;" alt="{{ product.name }}" class="img-fluid" />
-                {% else %}
-                  <img src="{{ images.0.image.url }}" style="height: 500px;" alt="{{ product.name }}" class="img-fluid" />
-                {% endif %}
+                  {% if images|length > 1 %}
+                    <img src="{{ images.1.image.url }}" alt="{{ product.name }}" class="img-fluid responsive-image" />
+                  {% else %}
+                    <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid responsive-image" />
+                  {% endif %}
 
-                {% if images|length > 2 %}
-                  <img src="{{ images.2.image.url }}" style="height: 500px;" alt="{{ product.name }}" class="img-fluid" />
-                {% else %}
-                  <img src="{{ images.0.image.url }}" style="height: 500px;" alt="{{ product.name }}" class="img-fluid" />
-                {% endif %}
-              {% endwith %}
+                  {% if images|length > 2 %}
+                    <img src="{{ images.2.image.url }}" alt="{{ product.name }}" class="img-fluid responsive-image" />
+                  {% else %}
+                    <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid responsive-image" />
+                  {% endif %}
+                {% endwith %}
               </div>
             </div>
           </div>
