@@ -59,7 +59,7 @@
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li>
-                      <a href="{% url 'product-by-category' category.id %}">{{ category.name }}</a>
+                      <a href="{% url 'product-by-category' category.slug %}">{{ category.name }}</a>
                     </li>
                   {% endfor %}
                   <li class="has-children">
@@ -470,7 +470,7 @@
           {% for product in products %}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
               <div class="property-item mb-30">
-                <a href="{% url 'product-detail' product_id=product.id %}" class="img">
+                <a href="{% url 'product-detail' product_slug=product.slug %}" class="img">
                   <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" />
                 </a>
                 <div class="property-content">
@@ -488,7 +488,7 @@
                         <span class="caption">{{ product.baths }} baths</span>
                       </span>
                     </div>
-                    <a href="{% url 'product-detail' product_id=product.id %}" class="btn btn-primary py-2 px-3">Ətraflı</a>
+                    <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı</a>
                   </div>
                 </div>
               </div>

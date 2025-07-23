@@ -53,7 +53,7 @@
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li>
-                      <a href="{% url 'product-by-category' category.id %}">{{ category.name }}</a>
+                      <a href="{% url 'product-by-category' category.slug %}">{{ category.name }}</a>
                     </li>
                   {% endfor %}
                   <li class="has-children">

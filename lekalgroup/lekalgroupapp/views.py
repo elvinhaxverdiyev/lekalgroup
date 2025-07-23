@@ -56,8 +56,8 @@ class CategoryListView(View):
     
 
 class ProductListByCategoryView(View):
-    def get(self, request, category_id):
-        category = get_object_or_404(Category, id=category_id)
+    def get(self, request, category_slug):
+        category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category)
         return render(request, 'product.html', {
             'products': products,
