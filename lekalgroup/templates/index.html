@@ -127,7 +127,7 @@
                 {% if popular_products %}
                   {% for product in popular_products %}
                     <div class="property-item">
-                    <a href="{% url 'product-detail' product_id=product.id %}" class="img">
+                    <a href="{% url 'product-detail' product_slug=product.slug %}" class="img">
                       <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}"
                           class="img-fluid"
                           style="width: 300px; height: 300px; object-fit: cover; border-radius: 10px;" />
@@ -136,7 +136,7 @@
                         <div class="price mb-2"><span>₼{{ product.price }}</span></div>
                         <div>
                           <span class="d-block mb-2 text-black-50">{{ product.name }}</span>
-                          <a href="{% url 'product-detail' product_id=product.id %}" class="btn btn-primary py-2 px-3">Ətraflı Məlumat</a>
+                          <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı Məlumat</a>
                         </div>
                       </div>
                     </div>
