@@ -56,7 +56,7 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="#">Məhsullar</a>
+                <a href="{% url 'product-list' %}">Məhsullar</a>
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li>
