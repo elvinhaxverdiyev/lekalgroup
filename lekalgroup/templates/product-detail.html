@@ -112,9 +112,21 @@
           <div class="col-lg-7">
             <div class="img-property-slide-wrap">
               <div class="img-property-slide">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" />
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                {% with images=product.images.all %}
+                <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid" />
+
+                {% if images|length > 1 %}
+                  <img src="{{ images.1.image.url }}" alt="{{ product.name }}" class="img-fluid" />
+                {% else %}
+                  <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid" />
+                {% endif %}
+
+                {% if images|length > 2 %}
+                  <img src="{{ images.2.image.url }}" alt="{{ product.name }}" class="img-fluid" />
+                {% else %}
+                  <img src="{{ images.0.image.url }}" alt="{{ product.name }}" class="img-fluid" />
+                {% endif %}
+              {% endwith %}
               </div>
             </div>
           </div>
