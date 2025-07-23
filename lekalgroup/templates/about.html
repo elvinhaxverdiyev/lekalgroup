@@ -56,7 +56,16 @@
                       <a href="{% url 'product-by-category' category.id %}">{{ category.name }}</a>
                     </li>
                   {% endfor %}
+                  <li class="has-children">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown">
+                      <li><a href="#">Sub Menu One</a></li>
+                      <li><a href="#">Sub Menu Two</a></li>
+                      <li><a href="#">Sub Menu Three</a></li>
+                    </ul>
+                  </li>
                 </ul>
+                
               </li>
               <li class="active"><a href="{% url 'about-page' %}">Haqqımızda</a></li>
             </ul>
