@@ -19,7 +19,7 @@ urlpatterns = [
         name='product-list'
     ),
     path(
-        'product/<int:product_id>/', 
+        'product/<slug:product_slug>/', 
         ProductDetailView.as_view(), 
         name='product-detail'
     ),

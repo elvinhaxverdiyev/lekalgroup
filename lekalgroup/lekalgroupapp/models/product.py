@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+
 from .category import Category
 
 
@@ -20,6 +22,13 @@ class Product(models.Model):
     price = models.FloatField(
         verbose_name='Qiymət'   
     )
+    slug = models.SlugField(
+        verbose_name='Slug',
+        editable=False,
+        unique=True,
+        null=True,
+        blank=True 
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
@@ -39,9 +48,18 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            super().save(*args, **kwargs)
+            self.slug = f'{slugify(self.category.name)}-{slugify(self.name)}-{self.id}'
+            super().save(update_fields=['slug'])
+        else:
+            super().save(*args, **kwargs)
+            
     class Meta:
         verbose_name = 'Məhsul'
         verbose_name_plural = 'Məhsullar'
+    
     
    

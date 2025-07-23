@@ -37,15 +37,15 @@ class AboutPageView(View):
 
 
 class ProductPageView(View):
-    def get(self, request, category_id=None):
+    def get(self, request):
         products = Product.objects.filter(
             is_active=True).order_by('-created_at')
         return render(request, 'product.html', {'products': products})
 
 
 class ProductDetailView(View):
-    def get(self, request, product_id):
-        product = get_object_or_404(Product, id=product_id)
+    def get(self, request, product_slug):
+        product = get_object_or_404(Product, slug=product_slug)
         return render(request, 'product-detail.html', {'product': product})
 
 
