@@ -15,7 +15,7 @@ urlpatterns = [
     ),
     path(
         'products/', 
-        ProductListView.as_view(), 
+        ProductPageView.as_view(), 
         name='product-list'
     ),
     path(

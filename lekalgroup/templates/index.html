@@ -56,7 +56,7 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="{% url 'product-list' %}">Məhsullar</a>
+                <a href="{% url 'product-list' %}">Kataloq</a>
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li>
@@ -107,19 +107,16 @@
         <div class="row mb-5 align-items-center">
           <div class="col-lg-6">
             <h2 class="font-weight-bold text-primary heading">
-              Popular Properties
+              Populyar məhsullar
             </h2>
           </div>
-          <div class="col-lg-6 text-lg-end">
-            <p>
-              <a
-                href="#"
-                target="_blank"
-                class="btn btn-primary text-white py-3 px-4"
-                >Bütün məhsulları göstər</a
-              >
-            </p>
-          </div>
+        <div class="col-lg-6 text-lg-end">
+          <p>
+            <a href="{% url 'product-list' %}" class="btn btn-primary text-white py-3 px-4">
+              Bütün məhsulları göstər
+            </a>
+          </p>
+        </div>
         </div>
         <div class="row">
           <div class="col-12">
@@ -130,9 +127,11 @@
                 {% if popular_products %}
                   {% for product in popular_products %}
                     <div class="property-item">
-                      <a href="{% url 'product-detail' product_id=product.id %}" class="img">
-                        <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}" class="img-fluid" />
-                      </a>
+                    <a href="{% url 'product-detail' product_id=product.id %}" class="img">
+                      <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}"
+                          class="img-fluid"
+                          style="width: 300px; height: 300px; object-fit: cover; border-radius: 10px;" />
+                    </a>
                       <div class="property-content">
                         <div class="price mb-2"><span>₼{{ product.price }}</span></div>
                         <div>
