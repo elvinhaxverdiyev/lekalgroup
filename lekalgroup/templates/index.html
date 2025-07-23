@@ -56,7 +56,7 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="{% url 'product-list' %}">Məhsullar</a>
+                <a href="#">Məhsullar</a>
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li>
@@ -65,9 +65,7 @@
                   {% endfor %}
                 </ul>
               </li>
-              <li><a href="services.html">Services</a></li>
               <li><a href="{% url 'about-page' %}">Haqqımızda</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
             </ul>
 
             <a
