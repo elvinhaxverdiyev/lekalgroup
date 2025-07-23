@@ -23,5 +23,15 @@ urlpatterns = [
         ProductDetailView.as_view(), 
         name='product-detail'
     ),
+    path(
+        'categories/', 
+        CategoryListView.as_view(), 
+        name='category-list'
+    ),
+    path(
+        'products/category/<int:category_id>/',
+        ProductListByCategoryView.as_view(),
+        name='product-by-category'
+    ),
 
 ]

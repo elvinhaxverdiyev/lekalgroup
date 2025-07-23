@@ -56,23 +56,16 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="{% url 'product-list' %}">Məhsullar</a>
+                <a href="#">Məhsullar</a>
                 <ul class="dropdown">
-                  <li><a href="#">Buy Property</a></li>
-                  <li><a href="#">Sell Property</a></li>
-                  <li class="has-children">
-                    <a href="#">Dropdown</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Sub Menu One</a></li>
-                      <li><a href="#">Sub Menu Two</a></li>
-                      <li><a href="#">Sub Menu Three</a></li>
-                    </ul>
-                  </li>
+                  {% for category in categories %}
+                    <li>
+                      <a href="{% url 'product-by-category' category.id %}">{{ category.name }}</a>
+                    </li>
+                  {% endfor %}
                 </ul>
               </li>
-              <li><a href="services.html">Services</a></li>
               <li><a href="{% url 'about-page' %}">Haqqımızda</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
             </ul>
 
             <a
