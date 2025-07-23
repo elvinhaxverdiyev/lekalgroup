@@ -27,6 +27,10 @@ class Product(models.Model):
         default=True,
         verbose_name='Məhsul aktivliyi'
     )
+    is_popular = models.BooleanField(
+        default=False,
+        verbose_name = 'Ana səhifədə olacaq seçili məhsul'
+    )
 
     def __str__(self):
         return self.name

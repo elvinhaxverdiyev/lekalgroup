@@ -21,7 +21,14 @@ __all__ = [
 class HomePageView(View):
     def get(self, request):
         background_images = BackgroundImage.objects.all()
-        return render(request, 'index.html', {'background_images': background_images})
+        popular_products = Product.objects.filter(
+            is_active=True, is_popular=True
+            ).order_by('-created_at')
+        
+        return render(request, 'index.html', {
+            'popular_products': popular_products,
+            'background_images': background_images
+            })
 
 
 class AboutPageView(View):
@@ -31,7 +38,8 @@ class AboutPageView(View):
 
 class ProductListView(View):
     def get(self, request):
-        products = Product.objects.filter(is_active=True).order_by('-created_at')
+        products = Product.objects.filter(
+            is_active=True).order_by('-created_at')
         return render(request, 'product.html', {'products': products})
 
 
