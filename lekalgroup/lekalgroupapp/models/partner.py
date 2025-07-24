@@ -6,6 +6,7 @@ class Partner(models.Model):
         max_length=150,
         verbose_name='Ad'
     )
+
     logo = models.ImageField(
         upload_to='logo_images/',
         verbose_name='Əməkdaş logo şəkli',

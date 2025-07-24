@@ -234,7 +234,7 @@
         <div class="row mb-5 align-items-center">
           <div class="col-md-6">
             <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
-              Customer Says
+              Əməkdaşlarımız
             </h2>
           </div>
           <div class="col-md-6 text-md-end">
@@ -251,117 +251,33 @@
         </div>
         <div class="testimonial-slider-wrap">
           <div class="testimonial-slider">
+            {% for partner in partners %}
             <div class="item">
               <div class="testimonial">
-                <img
-                  src="{% static 'images/person_1-min.jpg' %}"
-                  alt="Image"
-                  class="img-fluid rounded-circle w-25 mb-4"
-                />
-                <div class="rate">
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                </div>
-                <h3 class="h5 text-primary mb-4">James Smith</h3>
-                <blockquote>
-                  <p>
-                    &ldquo;Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean.&rdquo;
-                  </p>
-                </blockquote>
-                <p class="text-black-50">Designer, Co-founder</p>
-              </div>
-            </div>
+                {% if partner.logo %}
+                  <img
+                    src="{{ partner.logo.url }}"
+                    alt="{{ partner.name }}"
+                    class="img-fluid rounded-circle w-200 mb-4"
+                    style="width:200px; height:200px; object-fit: cover;"
+                  />
+                {% else %}
+                  <img
+                    src="{% static 'images/default-logo.jpg' %}"
+                    alt="Default Logo"
+                    class="img-fluid rounded-circle w-25 mb-4"
+                    style="width:100px; height:1000px; object-fit: cover;"
+                  />
+                {% endif %}
 
-            <div class="item">
-              <div class="testimonial">
-                <img
-                  src="{% static 'images/person_2-min.jpg' %}"
-                  alt="Image"
-                  class="img-fluid rounded-circle w-25 mb-4"
-                />
-                <div class="rate">
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                </div>
-                <h3 class="h5 text-primary mb-4">Mike Houston</h3>
-                <blockquote>
-                  <p>
-                    &ldquo;Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean.&rdquo;
-                  </p>
-                </blockquote>
-                <p class="text-black-50">Designer, Co-founder</p>
-              </div>
-            </div>
 
-            <div class="item">
-              <div class="testimonial">
-                <img
-                  src="{% static 'images/person_3-min.jpg' %}"
-                  alt="Image"
-                  class="img-fluid rounded-circle w-25 mb-4"
-                />
-                <div class="rate">
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                </div>
-                <h3 class="h5 text-primary mb-4">Cameron Webster</h3>
-                <blockquote>
-                  <p>
-                    &ldquo;Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean.&rdquo;
-                  </p>
-                </blockquote>
-                <p class="text-black-50">Designer, Co-founder</p>
+                <h3 class="h5 text-primary mb-4 ">{{ partner.name }}</h3>
               </div>
             </div>
-
-            <div class="item">
-              <div class="testimonial">
-                <img
-                  src="{% static 'images/person_4-min.jpg' %}"
-                  alt="Image"
-                  class="img-fluid rounded-circle w-25 mb-4"
-                />
-                <div class="rate">
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                  <span class="icon-star text-warning"></span>
-                </div>
-                <h3 class="h5 text-primary mb-4">Dave Smith</h3>
-                <blockquote>
-                  <p>
-                    &ldquo;Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean.&rdquo;
-                  </p>
-                </blockquote>
-                <p class="text-black-50">Designer, Co-founder</p>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
-      </div>
-    </div>
+
 
     <div class="section section-4 bg-light">
       <div class="container">

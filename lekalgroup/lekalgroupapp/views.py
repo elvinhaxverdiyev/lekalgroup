@@ -22,7 +22,7 @@ __all__ = [
 class HomePageView(View):
     def get(self, request):
         background_images = BackgroundImage.objects.all()
-        partners = Partner.objects.all()
+        partners = Partner.objects.filter(is_active=True)
         popular_products = Product.objects.filter(
             is_active=True, is_popular=True
             ).order_by('-created_at')
