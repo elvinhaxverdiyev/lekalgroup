@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from lekalgroupapp.models.category import Category
+from lekalgroupapp.models import Category
 
 
 @admin.register(Category)

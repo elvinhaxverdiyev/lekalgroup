@@ -2,10 +2,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from lekalgroupapp.forms import ProductImageInlineFormSet
+from lekalgroupapp.models import Product, ProductImage
 
-from lekalgroupapp.models.product import Product
-from PIL import Image
-from lekalgroupapp.models.product_image import ProductImage
 
 
 

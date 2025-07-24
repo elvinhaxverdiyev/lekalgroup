@@ -6,6 +6,7 @@ from django.views import View
 from lekalgroupapp.models import (
     Product,
     Category,
+    Partner,
     BackgroundImage,
 )
 
@@ -21,13 +22,15 @@ __all__ = [
 class HomePageView(View):
     def get(self, request):
         background_images = BackgroundImage.objects.all()
+        partners = Partner.objects.filter(is_active=True)
         popular_products = Product.objects.filter(
             is_active=True, is_popular=True
             ).order_by('-created_at')
         
         return render(request, 'index.html', {
+            'background_images': background_images,
             'popular_products': popular_products,
-            'background_images': background_images
+            'partners': partners
             })
 
 
