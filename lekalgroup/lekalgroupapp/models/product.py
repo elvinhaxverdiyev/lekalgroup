@@ -12,7 +12,7 @@ class Product(models.Model):
         verbose_name='Kateqoriya'
     )
     name = models.CharField(
-        max_length=150,
+        max_length=250,
         verbose_name='Ad'
     )
     description = models.TextField(
@@ -23,6 +23,7 @@ class Product(models.Model):
         verbose_name='Qiymət'   
     )
     slug = models.SlugField(
+        max_length=255,
         verbose_name='Slug',
         editable=False,
         unique=True,

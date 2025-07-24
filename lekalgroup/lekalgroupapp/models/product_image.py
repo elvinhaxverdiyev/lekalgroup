@@ -12,6 +12,7 @@ class ProductImage(models.Model):
         verbose_name='Məhsul',
     )
     image = models.ImageField(
+        max_length=255,
         upload_to='product_images',
         verbose_name='Məhsul şəkli',
         null=True,
