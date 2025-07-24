@@ -11,6 +11,10 @@ class Partner(models.Model):
         verbose_name='Əməkdaş logo şəkli',
         blank=True
     )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Əməkdaş aktivliyi'
+    )
     created_at = models.DateTimeField(
         auto_now_add=True
     )
