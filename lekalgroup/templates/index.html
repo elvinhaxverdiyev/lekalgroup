@@ -130,10 +130,13 @@
                 {% if popular_products %}
                   {% for product in popular_products %}
                     <div class="property-item">
-                    <a href="{% url 'product-detail' product_slug=product.slug %}" class="img d-block w-100">
-                      <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}"
-                          class="img-fluid w-100"
-                          style="aspect-ratio: 1 / 1; object-fit: contain; border-radius: 10px; background: #f8f8f8;" />
+                    <a href="{% url 'product-detail' product_slug=product.slug %}" class="d-block w-100">
+                      <div style="position: relative; width: 100%; padding-top: 100%; background: #f8f8f8; border-radius: 10px; overflow: hidden;">
+                        <img src="{{ product.get_main_image_url }}"
+                            alt="{{ product.name }}"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                                    max-width: 100%; max-height: 100%; object-fit: contain;" />
+                      </div>
                     </a>
                       <div class="property-content">
                         <div class="price mb-2"><span>{{ product.price }} ₼</span></div>

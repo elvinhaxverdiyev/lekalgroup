@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from lekalgroupapp.forms import ProductImageInlineFormSet
-from lekalgroupapp.models import Product, ProductImage
+from lekalgroupapp.models import Product, ProductImage, Category
 
 
 
@@ -29,3 +29,8 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     ordering = ('-created_at',)
     inlines = [ProductImageInline]
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "category":
+            kwargs["queryset"] = Category.objects.filter(parent_category__isnull=False)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
