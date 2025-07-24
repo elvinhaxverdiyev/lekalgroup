@@ -52,18 +52,20 @@
                 <a href="{% url 'product-list' %}">Kataloq</a>
                 <ul class="dropdown">
                   {% for category in categories %}
-                    <li>
+                    <li class="{% if category.children.all %}has-children{% endif %}">
                       <a href="{% url 'product-by-category' category.slug %}">{{ category.name }}</a>
+
+                      {% if category.children.all %}
+                        <ul class="dropdown">
+                          {% for child in category.children.all %}
+                            <li>
+                              <a href="{% url 'product-by-category' child.slug %}">{{ child.name }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
                     </li>
                   {% endfor %}
-                  <li class="has-children">
-                    <a href="#">Dropdown</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Sub Menu One</a></li>
-                      <li><a href="#">Sub Menu Two</a></li>
-                      <li><a href="#">Sub Menu Three</a></li>
-                    </ul>
-                  </li>
                 </ul>
                 
               </li>

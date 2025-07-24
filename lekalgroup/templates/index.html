@@ -59,19 +59,22 @@
                 <a href="{% url 'product-list' %}">Kataloq</a>
                 <ul class="dropdown">
                   {% for category in categories %}
-                    <li>
+                    <li class="{% if category.children.all %}has-children{% endif %}">
                       <a href="{% url 'product-by-category' category.slug %}">{{ category.name }}</a>
+
+                      {% if category.children.all %}
+                        <ul class="dropdown">
+                          {% for child in category.children.all %}
+                            <li>
+                              <a href="{% url 'product-by-category' child.slug %}">{{ child.name }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
                     </li>
                   {% endfor %}
-                  <li class="has-children">
-                    <a href="#">Dropdown</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Sub Menu One</a></li>
-                      <li><a href="#">Sub Menu Two</a></li>
-                      <li><a href="#">Sub Menu Three</a></li>
-                    </ul>
-                  </li>
                 </ul>
+
               </li>
               <li><a href="{% url 'about-page' %}">Haqqımızda</a></li>
             </ul>
@@ -130,12 +133,14 @@
                     <a href="{% url 'product-detail' product_slug=product.slug %}" class="img d-block w-100">
                       <img src="{{ product.get_main_image_url }}" alt="{{ product.name }}"
                           class="img-fluid w-100"
-                          style="aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px;" />
+                          style="aspect-ratio: 1 / 1; object-fit: contain; border-radius: 10px; background: #f8f8f8;" />
                     </a>
                       <div class="property-content">
                         <div class="price mb-2"><span>{{ product.price }} ₼</span></div>
                         <div>
-                          <span class="d-block mb-2 text-black-50">{{ product.name }}</span>
+                          <span class="d-block mb-2 text-black-50">
+                            {{ product.name|truncatechars:25 }}
+                          </span>
                           <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı Məlumat</a>
                         </div>
                       </div>

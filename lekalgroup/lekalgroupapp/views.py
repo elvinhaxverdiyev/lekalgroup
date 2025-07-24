@@ -16,7 +16,6 @@ __all__ = [
     'ProductPageView',
     'ProductDetailView',
     'ProductListByCategoryView',
-    'CategoryListView'
 ]
 
 class HomePageView(View):
@@ -26,36 +25,50 @@ class HomePageView(View):
         popular_products = Product.objects.filter(
             is_active=True, is_popular=True
             ).order_by('-created_at')
-        
+        categories = Category.objects.filter(parent_category=None)
+
         return render(request, 'index.html', {
             'background_images': background_images,
             'popular_products': popular_products,
-            'partners': partners
+            'partners': partners,
+            'categories': categories
             })
 
 
 class AboutPageView(View):
     def get(self, request):
-        return render(request, 'about.html',)
+        categories = Category.objects.filter(parent_category=None)
+        return render(request, 'about.html',{
+            'categories': categories
+        })
 
 
 class ProductPageView(View):
     def get(self, request):
         products = Product.objects.filter(
             is_active=True).order_by('-created_at')
-        return render(request, 'product.html', {'products': products})
+        categories = Category.objects.filter(parent_category=None)
+
+        return render(request, 'product.html', {
+            'products': products,
+            'categories': categories
+            })
 
 
 class ProductDetailView(View):
     def get(self, request, product_slug):
         product = get_object_or_404(Product, slug=product_slug)
-        return render(request, 'product-detail.html', {'product': product})
+        categories = Category.objects.filter(parent_category=None)
+
+        return render(request, 'product-detail.html', {
+            'product': product,
+            'categories': categories
+            })
 
 
 class CategoryListView(View):
     def get(self, request):
-        categories = Category.objects.all()
-        return render(request, 'index.html', {'categories': categories})
+        return render(request, 'index.html', )
     
 
 class ProductListByCategoryView(View):
