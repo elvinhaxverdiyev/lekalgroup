@@ -472,9 +472,14 @@
           {% for product in products %}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
               <div class="property-item mb-30">
-                <a href="{% url 'product-detail' product_slug=product.slug %}" class="img">
-                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" />
-                </a>
+                <a href="{% url 'product-detail' product_slug=product.slug %}" class="d-block w-100">
+                      <div style="position: relative; width: 100%; padding-top: 100%; background: #f8f8f8; border-radius: 10px; overflow: hidden;">
+                        <img src="{{ product.get_main_image_url }}"
+                            alt="{{ product.name }}"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                                    max-width: 100%; max-height: 100%; object-fit: contain;" />
+                      </div>
+                    </a>
                 <div class="property-content">
                   <div class="price mb-2"><span>{{ product.price }} ₼</span></div>
                   <div>
@@ -499,15 +504,32 @@
             <div class="col-12"><p>Məhsul tapılmadı.</p></div>
           {% endfor %}
         </div>
+
         <div class="row align-items-center py-5">
-          <div class="col-lg-3">Pagination (1 of 10)</div>
+          <div class="col-lg-3">
+            Səhifə {{ page_obj.number }} / {{ paginator.num_pages }}
+          </div>
           <div class="col-lg-6 text-center">
             <div class="custom-pagination">
-              <a href="#">1</a>
-              <a href="#" class="active">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
+              {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">«</a>
+              {% else %}
+                <span class="disabled">«</span>
+              {% endif %}
+
+              {% for num in paginator.page_range %}
+                {% if num == page_obj.number %}
+                  <a href="?page={{ num }}" class="active">{{ num }}</a>
+                {% elif num >= page_obj.number|add:-2 and num <= page_obj.number|add:2 %}
+                  <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+              {% endfor %}
+
+              {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">»</a>
+              {% else %}
+                <span class="disabled">»</span>
+              {% endif %}
             </div>
           </div>
         </div>
