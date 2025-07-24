@@ -259,19 +259,10 @@
                     src="{{ partner.logo.url }}"
                     alt="{{ partner.name }}"
                     class="img-fluid rounded-circle w-200 mb-4"
-                    style="width:200px; height:200px; object-fit: cover;"
-                  />
-                {% else %}
-                  <img
-                    src="{% static 'images/default-logo.jpg' %}"
-                    alt="Default Logo"
-                    class="img-fluid rounded-circle w-25 mb-4"
-                    style="width:100px; height:1000px; object-fit: cover;"
+                    style="width:200px; height:200px; object-fit: cover; display: block; margin-left: auto; margin-right: auto;"
                   />
                 {% endif %}
-
-
-                <h3 class="h5 text-primary mb-4 ">{{ partner.name }}</h3>
+                <h3 class="h5 text-primary mb-4 text-center">{{ partner.name }}</h3>
               </div>
             </div>
             {% endfor %}
