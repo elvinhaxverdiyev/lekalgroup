@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
 from django.views import View
 
@@ -45,13 +46,17 @@ class AboutPageView(View):
 
 class ProductPageView(View):
     def get(self, request):
-        products = Product.objects.filter(
-            is_active=True).order_by('-created_at')
+        products_list  = Product.objects.filter(is_active=True).order_by('-created_at')
         categories = Category.objects.filter(parent_category=None)
+        paginator = Paginator(products_list, 9)  
+        page_number = request.GET.get('page')
+        products = paginator.get_page(page_number)
 
         return render(request, 'product.html', {
             'products': products,
-            'categories': categories
+            'categories': categories,
+            'paginator': paginator,
+            'page_obj': products, 
             })
 
 
