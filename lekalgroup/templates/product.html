@@ -56,7 +56,7 @@
             >
               <li><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="{% url 'product-list' %}">Kataloq</a>
+                <a href="#" class="no-click">Kataloq</a> 
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li class="{% if category.children.all %}has-children{% endif %}">
@@ -99,7 +99,7 @@
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-lg-9 text-center mt-5">
-            <h1 class="heading" data-aos="fade-up">Properties</h1>
+            <h1 class="heading" data-aos="fade-up">Məhsullarımız</h1>
 
             <nav
               aria-label="breadcrumb"
@@ -112,7 +112,7 @@
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
                 >
-                  Properties
+                  Məhsullar
                 </li>
               </ol>
             </nav>
