@@ -9895,7 +9895,7 @@ textarea {
   font-size: 13px;
   position: relative;
   width: 100%;
-  margin-top: -100px;
+  margin: 0;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
   z-index: 2; }
@@ -9923,7 +9923,7 @@ textarea {
       font-size: 13px; }
 
 .slider-nav {
-  margin-top: -100px;
+  /* margin-top: -100px; */
   position: relative; }
   .slider-nav span {
     cursor: pointer;
