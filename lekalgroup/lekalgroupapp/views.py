@@ -76,8 +76,13 @@ class ProductDetailView(View):
 class ProductListByCategoryView(View):
     def get(self, request, category_slug):
         category = get_object_or_404(Category, slug=category_slug)
-        products = Product.objects.filter(category=category)
+        subcategories = category.children.all()
         categories = Category.objects.filter(parent_category=None)
+        products = Product.objects.filter(
+            is_active=True,
+            category__in=[category] + list(subcategories)
+        ).order_by('-created_at')
+        
         return render(request, 'product.html', {
             'products': products,
             'category': category,

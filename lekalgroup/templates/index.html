@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
 <!-- /*
 * Template Name: Property
@@ -139,10 +140,16 @@
                       </div>
                     </a>
                       <div class="property-content">
-                        <div class="price mb-2"><span>{{ product.price }} ₼</span></div>
+                        <div class="price mb-2">
+                          <span style="font-size: 1.45rem; font-weight: 600; color: #000;">
+                            {{ product.name|truncatechars:23 }}
+                          </span>
+                        </div>
                         <div>
-                          <span class="d-block mb-2 text-black-50">
-                            {{ product.name|truncatechars:25 }}
+                          <span class="d-block d-flex align-items-center me-3">
+                            <span class="price mb-2">
+                              <span class="fs-4 fw-semibold" style="color: #005555;">{{ product.price|intcomma }} ₼</span>
+                            </span>
                           </span>
                           <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı Məlumat</a>
                         </div>
