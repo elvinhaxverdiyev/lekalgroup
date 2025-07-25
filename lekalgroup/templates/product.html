@@ -124,7 +124,9 @@
         <div class="row mb-5 align-items-center">
           <div class="col-lg-6 text-center mx-auto">
             <h2 class="font-weight-bold text-primary heading">
-              Featured Properties
+              <h2 class="text-center mt-4 mb-4 fw-bold display-5 text-primary">
+              {{ category.name }}
+            </h2>
             </h2>
           </div>
         </div>
@@ -481,19 +483,14 @@
                       </div>
                     </a>
                 <div class="property-content">
-                  <div class="price mb-2"><span>{{ product.price }} ₼</span></div>
+                  <div class="price mb-2"><span>{{ product.name|truncatechars:25 }}</span></div>
                   <div>
-                    <span class="d-block mb-2 text-black-50">{{ product.address }}</span>
-                    <span class="city d-block mb-3">{{ product.city }}</span>
+                   
                     <div class="specs d-flex mb-4">
                       <span class="d-block d-flex align-items-center me-3">
-                        <span class="icon-bed me-2"></span>
-                        <span class="caption">{{ product.beds }} beds</span>
+                        <span class="caption fs-4 fw-semibold text-dark">{{ product.price }} ₼</span>
                       </span>
-                      <span class="d-block d-flex align-items-center">
-                        <span class="icon-bath me-2"></span>
-                        <span class="caption">{{ product.baths }} baths</span>
-                      </span>
+                     
                     </div>
                     <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı</a>
                   </div>
@@ -506,33 +503,10 @@
         </div>
 
         <div class="row align-items-center py-5">
-          <div class="col-lg-3">
-            Səhifə {{ page_obj.number }} / {{ paginator.num_pages }}
-          </div>
-          <div class="col-lg-6 text-center">
-            <div class="custom-pagination">
-              {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}">«</a>
-              {% else %}
-                <span class="disabled">«</span>
-              {% endif %}
+        
 
-              {% for num in paginator.page_range %}
-                {% if num == page_obj.number %}
-                  <a href="?page={{ num }}" class="active">{{ num }}</a>
-                {% elif num >= page_obj.number|add:-2 and num <= page_obj.number|add:2 %}
-                  <a href="?page={{ num }}">{{ num }}</a>
-                {% endif %}
-              {% endfor %}
-
-              {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">»</a>
-              {% else %}
-                <span class="disabled">»</span>
-              {% endif %}
-            </div>
-          </div>
-        </div>
+       
+      </div>
       </div>
     </div>
 

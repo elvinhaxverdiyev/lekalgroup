@@ -47,6 +47,7 @@ class AboutPageView(View):
 class ProductPageView(View):
     def get(self, request):
         products_list  = Product.objects.filter(is_active=True).order_by('-created_at')
+        category = Category.objects.all()
         categories = Category.objects.filter(parent_category=None)
         paginator = Paginator(products_list, 9)  
         page_number = request.GET.get('page')
@@ -55,6 +56,7 @@ class ProductPageView(View):
         return render(request, 'product.html', {
             'products': products,
             'categories': categories,
+            'category': category,
             'paginator': paginator,
             'page_obj': products, 
             })
