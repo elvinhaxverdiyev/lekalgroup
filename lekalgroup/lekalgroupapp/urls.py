@@ -14,6 +14,11 @@ urlpatterns = [
         name='about-page'
     ),
     path(
+        'contact/', 
+        ContactPageView.as_view(), 
+        name='contact-page'
+    ),
+    path(
         'products/', 
         ProductPageView.as_view(), 
         name='product-list'

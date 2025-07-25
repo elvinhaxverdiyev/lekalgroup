@@ -14,6 +14,7 @@ from lekalgroupapp.models import (
 __all__ = [
     'HomePageView',
     'AboutPageView',
+    'ContactPageView',
     'ProductPageView',
     'ProductDetailView',
     'ProductListByCategoryView',
@@ -40,6 +41,14 @@ class AboutPageView(View):
     def get(self, request):
         categories = Category.objects.filter(parent_category=None)
         return render(request, 'about.html',{
+            'categories': categories
+        })
+
+
+class ContactPageView(View):
+    def get(self, request):
+        categories = Category.objects.filter(parent_category=None)
+        return render(request, 'contact.html',{
             'categories': categories
         })
 
