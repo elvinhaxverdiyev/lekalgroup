@@ -33,4 +33,9 @@ urlpatterns = [
         ProductListByCategoryView.as_view(),
         name='product-by-category'
     ),
+    path(
+        'products/popular-products/',
+        PopularProductListView.as_view(),
+        name='popular-products'
+    ),
 ]
