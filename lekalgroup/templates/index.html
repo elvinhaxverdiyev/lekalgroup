@@ -57,7 +57,7 @@
             >
               <li class="active"><a href="{% url 'home-page' %}">Ana Səhifə</a></li>
               <li class="has-children">
-                <a href="#" class="no-click">Kataloq</a> 
+                <a href="" class="no-click">Kataloq</a> 
                 <ul class="dropdown">
                   {% for category in categories %}
                     <li class="{% if category.children.all %}has-children{% endif %}">
