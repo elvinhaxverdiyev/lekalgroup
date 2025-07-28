@@ -18,6 +18,7 @@ __all__ = [
     'ProductPageView',
     'ProductDetailView',
     'ProductListByCategoryView',
+    'PopularProductListView'
 ]
 
 class HomePageView(View):
@@ -98,4 +99,16 @@ class ProductListByCategoryView(View):
             'products': products,
             'category': category,
             'categories': categories
+        })
+
+
+class PopularProductListView(View):
+    def get(self, request):
+        popular_products = Product.objects.filter(
+            is_active=True,
+            is_popular=True
+        ).order_by('-created_at')
+        
+        return render(request, 'popular_product.html', {
+            'popular_products': popular_products,
         })
