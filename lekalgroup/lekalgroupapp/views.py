@@ -39,9 +39,11 @@ class HomePageView(View):
 
 class AboutPageView(View):
     def get(self, request):
+        partners = Partner.objects.filter(is_active=True)
         categories = Category.objects.filter(parent_category=None)
         return render(request, 'about.html',{
-            'categories': categories
+            'categories': categories,
+            'partners': partners,
         })
 
 
