@@ -100,7 +100,18 @@
           ></div>
         {% endfor %}
       </div>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center">
+            <h1 class="heading" data-aos="fade-up">
+              Sadə vasitələrlə böyük nəticələr
+            </h1>
+          </div>
+        </div>
+      </div>
     </div>
+    
 
       
 
@@ -114,8 +125,8 @@
           </div>
         <div class="col-lg-6 text-lg-end">
           <p>
-            <a href="{% url 'product-list' %}#top" class="btn btn-primary text-white py-3 px-4">
-              Bütün məhsulları göstər
+            <a href="{% url 'popular-products' %}" class="btn btn-primary text-white py-3 px-4">
+              Bütün populyar məhsulları göstər
             </a>
           </p>
         </div>
@@ -361,10 +372,7 @@
               </ul>
 
   
-              <ul class="list-unstyled float-start links">
-                <li><a href="#emekdaslar">Əməkdaşlar</a></li>
-        
-              </ul>
+              
             </div>
             <!-- /.widget -->
           </div>
