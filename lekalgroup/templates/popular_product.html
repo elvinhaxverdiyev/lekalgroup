@@ -174,8 +174,8 @@
                 <li class="{% if request.resolver_match.url_name == 'home-page' %}active{% endif %}">
                   <a href="{% url 'home-page' %}">Ana Səhifə</a>
                 </li>
-                <li class="{% if request.resolver_match.url_name == 'product-list' %}active{% endif %}">
-                  <a href="{% url 'product-list' %}">Kataloq</a>
+                <li>
+                  <a href="#" onclick="scrollToTop(); return false;">Kataloq</a>
                 </li>
 
                 <li class="{% if request.resolver_match.url_name == 'contact-page' %}active{% endif %}">
@@ -186,11 +186,7 @@
                   <a href="{% url 'about-page' %}">Haqqımızda</a>
                 </li>
               </ul>
-              <ul class="list-unstyled float-start links">
-                <a href="{% url 'home-page' %}#emekdaslar">Əməkdaşlar</a>
-                
               
-              </ul>
             </div>
             <!-- /.widget -->
           </div>

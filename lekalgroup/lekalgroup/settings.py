@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    
+    'admin_interface',
+    'colorfield',  
+
     'lekalgroupapp',
 ]
 
@@ -53,7 +55,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# domain ucun ssl
+X_FRAME_OPTIONS = "SAMEORIGIN" 
+
+# SSL for Domain
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
