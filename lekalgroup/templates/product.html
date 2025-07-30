@@ -123,12 +123,14 @@
         <div class="row mb-5 align-items-center">
           <div class="col-lg-6 text-center mx-auto">
             <h2 class="font-weight-bold text-primary heading">
-              <h2 class="text-center mt-4 mb-4 fw-bold display-5 text-primary">
+            <h2 class="text-center mt-4 mb-4 fw-bold display-5 text-primary">
               {{ category.name }}
             </h2>
             </h2>
           </div>
         </div>
+      </div>    
+    </div>
        
     <div class="section section-properties">
       <div class="container">
@@ -143,22 +145,21 @@
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
                                     max-width: 100%; max-height: 100%; object-fit: contain;" />
                       </div>
-                    </a>
+                 </a>
                 <div style="margin-top: 0;" class="property-content">
                   <div class="price mb-2">
                     <span style="font-size: 1.45rem; font-weight: 600; color: #000;">
                       {{ product.name|truncatechars:23 }}
                     </span>
                   </div>
-                  <div>
+                <div>
                    
                     <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="price mb-2">
-                        <span class="fs-4 fw-semibold" style="color: #005555;">{{ product.price|intcomma }} ₼</span>
+                      <span class="d-block d-flex align-items-center me-3">
+                        <span class="price mb-2">
+                          <span class="fs-4 fw-semibold" style="color: #005555;">{{ product.price|intcomma }} ₼</span>
+                        </span>
                       </span>
-                    </span>
-                                        
                     </div>
                     <a href="{% url 'product-detail' product_slug=product.slug %}" class="btn btn-primary py-2 px-3">Ətraflı</a>
                   </div>
@@ -169,12 +170,6 @@
             <div class="col-12"><p>Məhsul tapılmadı.</p></div>
           {% endfor %}
         </div>
-
-        <div class="row align-items-center py-5">
-        
-
-       
-      </div>
       </div>
     </div>
 
@@ -279,9 +274,7 @@
       </div>
       <!-- /.container -->
     </div>
-    <!-- /.site-footer -->
 
-    <!-- Preloader -->
     <div id="overlayer"></div>
     <div class="loader">
       <div class="spinner-border" role="status">

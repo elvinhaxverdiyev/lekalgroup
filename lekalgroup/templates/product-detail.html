@@ -113,6 +113,7 @@
     <div class="section">
       <div class="container">
         <div class="row justify-content-between">
+
           <div class="col-lg-7">
             <div class="img-property-slide-wrap">
               <div class="img-property-slide">
@@ -134,15 +135,18 @@
               </div>
             </div>
           </div>
+
           <div class="col-lg-4">
-            <h2 class="heading text-primary">{{ product.price }} ₼</h2>
+            <h2 class="heading text-primary">{{ product.name }} </h2>
+            <h4 class="heading text-primary">{{ product.price }} ₼</h4>
+            <p class="text-black-50">{{ product.description }}</p>
+
   
-            <div class="specs d-flex mb-4">
+            
               
             <div class="d-block agent-box p-5">
               <div class="text">
 
-                <p class="text-black-50">{{ product.description }}</p>
                 <ul class="list-unstyled social dark-hover d-flex">
                   <li class="me-1">
                     <a href="#"><span class="icon-whatsapp"></span></a>
@@ -262,9 +266,7 @@
       </div>
       <!-- /.container -->
     </div>
-    <!-- /.site-footer -->
 
-    <!-- Preloader -->
     <div id="overlayer"></div>
     <div class="loader">
       <div class="spinner-border" role="status">
