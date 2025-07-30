@@ -26,9 +26,9 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-    <title>
-      Lekalgroup 
-    </title>
+    <title>Lekalgroup</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/android-chrome-512x512.png' %}">
+
   </head>
 
 
@@ -362,6 +362,7 @@
                 <li>
                   <a href="#" onclick="scrollToTop(); return false;">Kataloq</a>
                 </li>
+
                 <li class="{% if request.resolver_match.url_name == 'contact-page' %}active{% endif %}">
                   <a href="{% url 'contact-page' %}">Bizimlə Əlaqə</a>
                 </li>
