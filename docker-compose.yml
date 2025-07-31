@@ -23,6 +23,23 @@ services:
       - db
     env_file:
       - .env
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./lekalgroup/static:/app/static:ro
+      - ./lekalgroup/media:/app/media:ro
+      - certs:/etc/letsencrypt    # SSL üçün (production)
+    depends_on:
+      - web
+    networks:
+      - backend
+  
+  
 
 volumes:
   postgres_data:
