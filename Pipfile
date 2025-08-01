@@ -10,9 +10,9 @@ python_version = "3.13"
 
 [packages]
 django = "*"
-gunicorn = "*"
 python-decouple = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
 pillow = "*"
 django-admin-interface = "*"
+gunicorn = "*"
