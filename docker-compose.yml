@@ -1,6 +1,7 @@
 
 services:
   db:
+    container_name: lekalgroup-db
     image: postgres:15
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -14,13 +15,17 @@ services:
       -  lekalgroup
 
   web:
+    container_name: lekalgroup-web
     working_dir: /code/lekalgroup
     build: .
-    command: gunicorn lekalgroup.wsgi:application --bind 0.0.0.0:8000
+    command: >
+      sh -c "python manage.py collectstatic --noinput &&
+        python manage.py migrate &&
+        gunicorn lekalgroup.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/code
-      - media_volume:/code/lekalgroup/media
       - static_volume:/code/lekalgroup/staticfiles
+      - media_volume:/code/lekalgroup/media
     ports:
       - "8000:8000"
     depends_on:
@@ -40,20 +45,18 @@ services:
       - "443:443"
     volumes:
       - static_volume:/app/static:ro
-      - media_volume:/app/media:ro
+      - ./media:/app/media:ro
       - ./certs:/etc/letsencrypt/live/lekalgroup.az:ro
     depends_on:
       - web
     networks:
       - lekalgroup
   
-  
 volumes:
   postgres_data:
   certs:
   static_volume:
   media_volume:
-  
 
 networks:
   lekalgroup:
