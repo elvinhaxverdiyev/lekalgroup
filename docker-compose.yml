@@ -46,7 +46,7 @@ services:
     volumes:
       - static_volume:/app/static:ro
       - ./media:/app/media:ro
-      - ./certs:/etc/letsencrypt/live/lekalgroup.az:ro
+      - ./nginx/certs:/etc/ssl/cloudflare:ro 
     depends_on:
       - web
     networks:
