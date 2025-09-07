@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'lekalgroupapp',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://lekalgroup.az",
+    "https://www.lekalgroup.az",
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  
