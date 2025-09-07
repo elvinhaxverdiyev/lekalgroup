@@ -44,10 +44,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      # - ./nginx:/etc/nginx:ro 
       - static_volume:/app/static:ro
-      - media_volume:/app/media:ro 
-      - ./certs:/etc/letsencrypt/live/lekalgroup.az:ro
+      - ./media:/app/media:ro
+      - ./nginx/certs:/etc/ssl/cloudflare:ro 
+
     depends_on:
       - web
     networks:
