@@ -25,7 +25,8 @@ services:
     volumes:
       - .:/code
       - static_volume:/code/lekalgroup/staticfiles
-      - media_volume:/code/lekalgroup/media
+      - ./media:/code/lekalgroup/media
+
     ports:
       - "8000:8000"
     depends_on:
@@ -57,7 +58,6 @@ volumes:
   postgres_data:
   certs:
   static_volume:
-  media_volume:
 
 networks:
   lekalgroup:
