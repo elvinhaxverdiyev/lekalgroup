@@ -48,7 +48,7 @@ services:
       - static_volume:/app/static:ro
       - ./media:/app/media
       - ./nginx/certs:/etc/ssl/cloudflare:ro 
-      - ./lekal_verification:/app/verification
+      - ./lekal_verification:/var/www/lekalgroup/lekal_verification
 
     depends_on:
       - web
